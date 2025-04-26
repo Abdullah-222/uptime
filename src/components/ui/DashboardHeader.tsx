@@ -18,6 +18,9 @@ export function DashboardHeader({ lastUpdated, health, loading }: DashboardHeade
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const scale = useTransform(scrollY, [0, 300], [1, 0.8]);
   const y = useTransform(scrollY, [0, 300], [0, 100]);
+  const formattedTime = lastUpdated.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+const formattedDate = lastUpdated.toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' });
+
 
   return (
     <motion.header style={{ opacity, scale, y }} className="relative min-h-screen flex items-center pt-16 overflow-hidden">
